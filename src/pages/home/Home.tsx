@@ -1,16 +1,15 @@
-import  { FC, useState } from 'react'
+import { FC,  useState } from 'react';
 import Products from '../../components/products/Products';
-import { useFetch } from '../../hooks/useFetch';
+import { Product, useFetch } from '../../hooks/useFetch';
 
 const Home: FC = () => {
-     const [category, setCategory] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
 
-
-  const { data } = useFetch(
-    `/products${category ? `/category/${category}` : ""}`,
-    { limit: 10 },
-    [category]
-    );
+const { data } = useFetch(
+  `/products${category ? `/category/${category}` : ""}`,
+  { limit: 10 },
+  [category]
+);
 
   const products = (
     <div className="container mx-auto py-4 mt-10">
@@ -25,18 +24,23 @@ const Home: FC = () => {
         </li>
       </ul>
     </div>
-    );
-    console.log(products);
-    
+  );
+  console.log(products);
 
-    return (
-  <>
-            {products}
-            
-        <Products data={data}/>
-  </>
-  )
- 
-}
+  return (
+    <>
+      {products}
+      
 
-export default Home
+<Products
+
+data={
+
+    data
+} title='title'/>
+
+    </>
+  );
+};
+
+export default Home;

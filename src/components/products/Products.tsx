@@ -2,22 +2,13 @@ import  { FC } from 'react'
 import { FaHeart, FaStar } from 'react-icons/fa';
 import { IoCartOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-interface Product {
-  id: number;
-  title: string;
-  images: string[];
-  rating: number;
-  brand: string; // Changed from `number` to `string` for a more appropriate type
-  price: number;
-  percentageCount: number; // Corrected to `number`
-  category: string;
-  discountPercentage: number;
-}
+import { Product } from '../../hooks/useFetch';
+
 interface ProductsProps {
-  data: Product[]; // Expecting an array of Product items
+  data: Product[];
   title: string;
 }
-const Products: FC<ProductsProps>  = ({data, title}: any) => {
+const Products: FC<ProductsProps>  = ({data, title}) => {
   console.log(data);
   
     let items = data?.map((product:Product): JSX.Element => {
