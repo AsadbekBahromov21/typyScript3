@@ -1,6 +1,6 @@
 import { FC,  useState } from 'react';
 import Products from '../../components/products/Products';
-import { Product, useFetch } from '../../hooks/useFetch';
+import {  useFetch } from '../../hooks/useFetch';
 
 const Home: FC = () => {
   const [category, setCategory] = useState<string>("");
